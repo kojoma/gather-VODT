@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  gather-vdot:
+    build:
+      context: .
+      args:
+        RUBY_VERSION: "2.6.4"
+        LOCAL_BUILD: "true"
+    volumes:
+      - .:/appuser/gather-vdot:cached
+      - vendor:/vendor
+      - home:/home/appuser
+    tty: true
+    stdin_open: true
+
+volumes:
+  home:
+  vendor:
+
